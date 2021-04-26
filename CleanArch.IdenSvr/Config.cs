@@ -29,5 +29,15 @@ namespace CleanArch.IdenSvr
                 new ApiScope("cleanArchApi")
             };
         }
+
+        public static List<IdentityResource> GetIdentityResources()
+        {
+            return new List<IdentityResource>
+            {
+               new IdentityResources.OpenId(),
+               new IdentityResources.Profile(),
+               new IdentityResource("roles", "Your role(s)", new []{"role"}),
+            };
+        }
     }
 }

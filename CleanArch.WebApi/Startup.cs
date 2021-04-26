@@ -28,10 +28,26 @@ namespace CleanArch.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Identity server config
+
+            services.AddAuthentication("Bearer")
+                .AddIdentityServerAuthentication(options =>
+                {
+                    options.Authority = "http://localhost:5000";
+                    options.RequireHttpsMetadata = false;
+                    options.ApiName = "cleanArchApi";
+                });
+
+            #endregion
+
+
             services.AddControllers();
+            
             #region Inject Db context
             services.AddDbContext<UniversityDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CommanderConnection")));
             #endregion
+
+          
 
             RegisterServices(services);
         }
@@ -43,6 +59,7 @@ namespace CleanArch.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseAuthentication();
 
             app.UseHttpsRedirection();
 

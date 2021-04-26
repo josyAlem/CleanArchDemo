@@ -10,7 +10,7 @@ namespace CleanArch.IdenSvr
     {
         public static IEnumerable<ApiResource> GetAllApiResources() {
             return new List<ApiResource> { 
-            new ApiResource("CleanArchApi","University Courses")
+            new ApiResource("cleanArchApi","University Courses")
             };
         }
 
@@ -19,8 +19,15 @@ namespace CleanArch.IdenSvr
                 ClientId="client",
                 AllowedGrantTypes=GrantTypes.ClientCredentials,
                 ClientSecrets={new Secret("secret".Sha256()) },
-                AllowedScopes={ "CleanArchApi" }
+                AllowedScopes={ "cleanArchApi" }
         } };
+        }
+        public static IEnumerable<ApiScope> GetApiScopes()
+        {
+            return new List<ApiScope>
+            {
+                new ApiScope("cleanArchApi")
+            };
         }
     }
 }

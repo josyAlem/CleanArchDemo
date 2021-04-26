@@ -15,9 +15,9 @@ namespace CleanArch.Application.Services
         {
             _courseRepo = repo;
         }
-        public CourseDTO GetCourse()
+        public CourseDTO GetCourseById(int Id)
         {
-            var x = _courseRepo.GetCourses().First();
+            var x = _courseRepo.GetCourses().FirstOrDefault(c=>c.Id==Id);
 
             return new CourseDTO()
             {

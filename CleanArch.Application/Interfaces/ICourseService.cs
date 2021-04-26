@@ -7,6 +7,6 @@ namespace CleanArch.Application.Interfaces
 {
   public  interface ICourseService
     {
-        public CourseDTO GetCourse();
+        public CourseDTO GetCourseById(int Id);
     }
 }

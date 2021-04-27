@@ -19,7 +19,7 @@ namespace CleanArch.IdenSvr
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
                 .AddInMemoryApiResources(Config.GetAllApiResources())
-                .AddInMemoryIdentityResources(Config.GetIdentityResources())
+                //.AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryClients(Config.GetClients())
                 .AddInMemoryApiScopes(Config.GetApiScopes());
 

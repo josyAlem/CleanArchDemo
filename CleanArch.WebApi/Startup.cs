@@ -1,5 +1,6 @@
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.IoC;
+using IdentityModel;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -71,6 +72,7 @@ namespace CleanArch.WebApi
             {
                 endpoints.MapControllers();
             });
+        
         }
 
         private static void RegisterServices(IServiceCollection services)

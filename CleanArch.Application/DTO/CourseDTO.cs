@@ -1,4 +1,8 @@
-﻿namespace CleanArch.Application.DTO
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace CleanArch.Application.DTO
 {
     public class CourseDTO
     {

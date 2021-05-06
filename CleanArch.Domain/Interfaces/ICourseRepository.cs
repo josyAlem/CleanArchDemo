@@ -1,9 +1,12 @@
 ﻿using CleanArch.Domain.Models;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace CleanArch.Domain.Interfaces
 {
     public interface ICourseRepository
     {
-        public Course GetCourseById(int Id);
+        public IEnumerable<Course> GetCourses();
     }
 }

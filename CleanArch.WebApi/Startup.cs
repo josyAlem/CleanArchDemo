@@ -1,6 +1,5 @@
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.IoC;
-using IdentityModel;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -22,26 +21,10 @@ namespace CleanArch.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            #region Identity server config
-
-            services.AddAuthentication("Bearer")
-                .AddIdentityServerAuthentication(options =>
-                {
-                    options.Authority = "http://localhost:5000";
-                    options.RequireHttpsMetadata = false;
-                    options.ApiName = "cleanArchApi";
-                });
-
-            #endregion
-
-
             services.AddControllers();
-            
             #region Inject Db context
             services.AddDbContext<UniversityDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CommanderConnection")));
             #endregion
-
-          
 
             RegisterServices(services);
         }
@@ -53,7 +36,6 @@ namespace CleanArch.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseAuthentication();
 
             app.UseHttpsRedirection();
 
@@ -65,7 +47,6 @@ namespace CleanArch.WebApi
             {
                 endpoints.MapControllers();
             });
-        
         }
 
         private static void RegisterServices(IServiceCollection services)

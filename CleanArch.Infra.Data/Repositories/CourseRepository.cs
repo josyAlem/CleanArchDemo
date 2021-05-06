@@ -1,7 +1,9 @@
 ﻿using CleanArch.Domain.Interfaces;
 using CleanArch.Domain.Models;
 using CleanArch.Infra.Data.Context;
-using System.Linq;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace CleanArch.Infra.Data.Repositories
 {
@@ -12,9 +14,8 @@ namespace CleanArch.Infra.Data.Repositories
         {
             _uCtx = ctx;
         }
-        public Course GetCourseById(int Id) {
-            var course = _uCtx.Courses.FirstOrDefault(c=>c.Id==Id);
-            return course; 
+        public IEnumerable<Course> GetCourses() {
+           return _uCtx.Courses; 
         }
     }
 }

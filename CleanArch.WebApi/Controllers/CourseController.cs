@@ -1,10 +1,12 @@
 ﻿using CleanArch.Application.DTO;
 using CleanArch.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArch.WebApi.Controllers
 {
-    [Route("api/courses")]
+    [Authorize]
+    [Route("api/[controller]")]
     [ApiController]
     public class CourseController:ControllerBase
     {

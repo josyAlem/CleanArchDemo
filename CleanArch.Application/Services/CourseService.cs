@@ -1,10 +1,6 @@
 ﻿using CleanArch.Application.DTO;
 using CleanArch.Application.Interfaces;
 using CleanArch.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CleanArch.Application.Services
 {
@@ -17,7 +13,7 @@ namespace CleanArch.Application.Services
         }
         public CourseDTO GetCourseById(int Id)
         {
-            var x = _courseRepo.GetCourses().FirstOrDefault(c=>c.Id==Id);
+            var x = _courseRepo.GetCourseById(Id);
 
             return new CourseDTO()
             {

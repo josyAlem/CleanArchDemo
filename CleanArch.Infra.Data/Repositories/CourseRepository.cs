@@ -4,7 +4,6 @@ using CleanArch.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace CleanArch.Infra.Data.Repositories
 {

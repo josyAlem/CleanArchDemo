@@ -3,9 +3,6 @@ using CleanArch.Application.Interfaces;
 using CleanArch.Domain.Interfaces;
 using CleanArch.Domain.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace CleanArch.Application.Services
 {

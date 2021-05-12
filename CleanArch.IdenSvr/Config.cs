@@ -9,8 +9,14 @@ namespace CleanArch.IdenSvr
     public class Config
     {
         public static IEnumerable<ApiResource> GetAllApiResources() {
-            return new List<ApiResource> { 
-            new ApiResource("cleanArchApi","University Courses")
+            var sampleAPI = new ApiResource()
+            {
+                Name = "cleanArchApi",   //This is the name of the API
+                Enabled = true,
+                DisplayName = "University Courses",
+            };
+            return new List<ApiResource> {
+            sampleAPI
             };
         }
 

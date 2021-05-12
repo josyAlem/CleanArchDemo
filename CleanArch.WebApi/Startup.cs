@@ -38,7 +38,7 @@ namespace CleanArch.WebApi
             services.AddControllers();
             
             #region Inject Db context
-            services.AddDbContext<UniversityDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CommanderConnection")));
+            services.AddDbContext<UniversityDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CourseConnection")));
             #endregion
 
           

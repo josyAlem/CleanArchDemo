@@ -19,6 +19,7 @@ namespace CleanArch.Infra.Data.Repositories
             this.db = new SqlConnection(configuration.GetConnectionString("CommanderConnection"));
         }
         public List<Course> GetAll() {
+            
             var sql = "Select * from Courses";
             return db.Query<Course>(sql).ToList();
 
@@ -26,6 +27,8 @@ namespace CleanArch.Infra.Data.Repositories
         }
         public Course GetById(int id)
         {
+            ExecFunction();
+           
             var sql = "Select * from Courses where Id=@courseId";
             var result = db.Query<Course>(sql, new { @courseId = id }).SingleOrDefault();
             if(result==null)
@@ -68,6 +71,11 @@ namespace CleanArch.Infra.Data.Repositories
             int x = db.Execute(sql, new { @courseId = id });
             if (x == 0)
                 throw new Exception("Course Not Found");
+        }
+
+        private void ExecFunction() {
+            var result = db.Query<dynamic>("SELECT * from dbo.fnTest(@Parm1,@Parm2)", new {  Parm1 = 23,Parm2 = "testParm" }, commandType: CommandType.Text);
+
         }
     }
 }
